@@ -1,0 +1,58 @@
+/*Bismillahir Rahmanir Raheem-In the name of Allah."
+ code of MD ARIFUL ISLAM */
+
+#include<bits/stdc++.h>
+#define        int long long int 
+#define        INF 1e9
+#define        PI 3.141592653
+#define        PB push_back 
+#define        F first
+#define        S second
+#define        MP(x, y) push_back(make_pair(x, y))
+#define        srt(v) sort(v.begin(), v.end())
+#define        all(x) x.begin(), x.end()
+#define        rsrt(v) reverse(v.begin(), v.end())
+#define        no cout << "NO" << endl
+#define        yes cout << "YES" << "\n"
+#define        e "\n" 
+#define        pair  vector< pair <int ,int> >
+#define        deb(args...){string _s = #args;replace(_s.begin(), _s.end(), ',', ' ');stringstream _ss(_s);istream_iterator<string> _it(_ss);err(_it, args);}
+
+using namespace std;
+class bisection_method
+{
+public:
+	double calculation(double x){
+		return x*x*x -x*x + 2 ;
+	}
+	void bisection(double a , double b)
+	{
+		if(calculation(a)*calculation(b) >=0){
+			cout << "Select right a & b" << e ; return ;
+		}
+		double mid ;
+		double faraction = 0.01 ;
+		while((b-a) >= faraction){
+			mid = (a+b)/2 ;
+			if(calculation(mid) == 0){
+				cout << "the root is = " << mid << e ; return ;
+			}
+			else if(calculation(mid) < 0)
+				a = mid ;
+			else b = mid ;
+		}
+		cout << "the root is = " << mid << e;
+	}
+};
+int32_t main()
+{ 
+
+    ios_base::sync_with_stdio(false);cin.tie(NULL);
+    double a = -500 , b = 100 ;
+    bisection_method obj ;
+    obj.bisection(a , b) ;
+
+}
+//vector<int>::iterator lower, upper;
+//lower = lower_bound(v.begin(), v.end(), value) - v.begin() ;
+//upper = upper_bound(v.begin(), v.end(), value) - v.begin() ; -->
