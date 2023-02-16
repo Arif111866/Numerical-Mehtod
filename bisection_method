@@ -22,35 +22,45 @@ using namespace std;
 class bisection_method
 {
 public:
-	double calculation(double x){
-		return x*x*x -x*x + 2 ;
-	}
-	void bisection(double a , double b)
-	{
-		if(calculation(a)*calculation(b) >=0){
-			cout << "Select right a & b" << e ; return ;
-		}
-		double mid ;
-		double faraction = 0.01 ;
-		while((b-a) >= faraction){
-			mid = (a+b)/2 ;
-			if(calculation(mid) == 0){
-				cout << "the root is = " << mid << e ; return ;
-			}
-			else if(calculation(mid) < 0)
-				a = mid ;
-			else b = mid ;
-		}
-		cout << "the root is = " << mid << e;
-	}
+    double calculation(double x){
+        return x*x*x -x*x + 2 ;
+    }
+    bool bisection(double a , double b)
+    {
+        if(calculation(a)*calculation(b) >=0){
+            return false ;
+        }
+        double mid ;
+        double faraction = 0.000001 ; cout << "iteration Process "  ;
+        while((b-a) >= faraction){
+            mid = (a+b)/2 ;
+            if(calculation(mid) == 0){
+                cout << "the root is = " << mid << e ; return true;  ;
+            }
+            else if(calculation(mid) < 0)
+                a = mid ;
+            else b = mid ;
+
+            cout << mid << e ;
+        cout <<a << " " << b << e ;
+        }
+        cout << e  << "the root is = " << mid << e;
+        cout << "error " << abs(0 - calculation(mid)) << e ;
+        return true ;
+    }
 };
 int32_t main()
 { 
 
     ios_base::sync_with_stdio(false);cin.tie(NULL);
-    double a = -500 , b = 100 ;
-    bisection_method obj ;
-    obj.bisection(a , b) ;
+    while(1)
+    { 
+        srand(time(0));
+        double a = rand() , b = rand() ; 
+        bisection_method obj ;
+        if(obj.bisection(-1*a , b)) break ;  
+        yes ; 
+    }
 
 }
 //vector<int>::iterator lower, upper;
